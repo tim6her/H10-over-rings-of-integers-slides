@@ -188,48 +188,6 @@ body {
 /*********************************************
  * CONTROLS
  *********************************************/
-@-webkit-keyframes bounce-right {
-  0%, 10%, 25%, 40%, 50% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0); }
-  20% {
-    -webkit-transform: translateX(10px);
-            transform: translateX(10px); }
-  30% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px); } }
-@keyframes bounce-right {
-  0%, 10%, 25%, 40%, 50% {
-    -webkit-transform: translateX(0);
-            transform: translateX(0); }
-  20% {
-    -webkit-transform: translateX(10px);
-            transform: translateX(10px); }
-  30% {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px); } }
-
-@-webkit-keyframes bounce-down {
-  0%, 10%, 25%, 40%, 50% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); }
-  20% {
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px); }
-  30% {
-    -webkit-transform: translateY(-5px);
-            transform: translateY(-5px); } }
-
-@keyframes bounce-down {
-  0%, 10%, 25%, 40%, 50% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0); }
-  20% {
-    -webkit-transform: translateY(10px);
-            transform: translateY(10px); }
-  30% {
-    -webkit-transform: translateY(-5px);
-            transform: translateY(-5px); } }
 
 .reveal .controls {
   display: none;
