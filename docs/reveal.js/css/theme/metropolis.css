@@ -160,9 +160,12 @@ h1.title {
 
 .reveal strong,
 .reveal b {
-    font-weight: bold; }
+    font-weight: bold;
+    color: #AE1C3E;
+  }
 
 .reveal em {
+    color: #AE1C3E;
     font-style: italic; }
 
 .reveal ol,

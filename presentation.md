@@ -49,6 +49,8 @@ keywords: [number theory, theoretical computer science, decidability]
 \newcommand*{\py}{\mathrm y}
 \newcommand*{\sigmaK}[1]{{\left(#1\right)}^*}
 \newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
+\newcommand*{\seq}[2][n]{{#2}_1, \ldots, {#2}_{#1}}
+\newcommand*{\lang}{\mathcal{L}}
 </span>
 
 :::::::::::::: {.columns}
@@ -151,7 +153,7 @@ demands that the following axioms are satisfied
 . . .
 
 I write $\mathbb{A}(x)$ for the output of Turing machine $\mathbb{A}$ on input
-$x$.
+$x$ if $\mathbb{A}$ halts on $x$.
 
 ## Decision problems
 
@@ -179,10 +181,21 @@ of length $(n + 1)^2$.
 
 ### Definition
 
-* A partial function $f: ω \to ω$ is *computable* if there is a Turing machine $\mathbb{A} with $\mathbb{A}(x) = f(x)$ for all $x$ in the domain of $f$.
-* A decision problem is *decidable* if its characteristic function is computable.
-* A decision problem $Q$ is *semi-decidable* or *computably enumerable* if there is a Turing machine that returns $\mathtt{1}$ on all members of $Q$.
+> * A partial function $f: ω \to ω$ is *computable* if there is a Turing machine $\mathbb{A}$ with $\mathbb{A}(x) = f(x)$ for all $x$ in the domain of $f$.
+> * A decision problem is *decidable* if its characteristic function is computable.
+> * A decision problem $Q$ is *semi-decidable* or *computably enumerable* if there is a Turing machine that returns $\mathtt{1}$ on all members of $Q$.
 
+
+## Characterizations of semi-decidable sets
+
+### Proposition
+
+Let $Q \subseteq ω$ be a problem. The following are equivalent.
+
+* $Q$ is semi-decidable.
+* $Q$ is the range of a computable function.
+* There exists a computable binary relation $R$ on $ω^2$ such that
+  $$ x \in Q \Leftrightarrow \exists y : R(x, y)$$
 
 ## The mother of all undecidablility
 
@@ -190,11 +203,66 @@ of length $(n + 1)^2$.
 
 The *halting set* is the set of all codes of Turing machines $\mathbb{A}$ that halt upon receiving their code as input i.e.
 
-$$\mathcal{K} := \set{\enc{\mathbb{A}} | \mathbb{A} \text{ halts on } \enc{\mathbb{A}}}$$
+$$\mathcal{K} := \set{\enc{\mathbb{A}} \mid \mathbb{A} \text{ halts on } \enc{\mathbb{A}}}$$
 
+. . .
+
+<div fragment="true">
 ### Theorem
 
 The halting set is semi-decidable but not decidable.
+</div>
 
+
+
+# Diophantine sets and variants of Hilbert's tenth problem
+
+
+## Diophantine Sets
+
+### Definition
+
+Let $R$ be a commutative ring with unit. A set $S \subseteq R^n$ is called
+*Diophantine* if there exists a polynomial $p \in R[\seq{X}, \seq[m]{Y}]$ such
+that
+
+$$(\seq{x}) \in S \Leftrightarrow \exists \seq[m]{y} \in R^m : p(\seq{x}, \seq[m]{y}) = 0$$
+
+---
+
+<div style="font-size: 200%;"><strong>Which sets are Diophantine?</strong></div>
+
+
+## Diophantine Sets
+
+### Examples
+
+> * Let $R$ be an integral domain. Then every finite set is Diophantine.
+> * Let $R$ be a commutative ring with unit. Then divisibility is Diophantine over $R$.
+> * The set of natural numbers $ℕ$ is Diophantine over $ℤ$.
+> * Let $K$ be a number field and $\algint$ its ring of algebraic integers.
+    Then $\algint \setminus \set{0}$ is Diophantine over $\algint$.
+> * Let $K$ be a number field and $\algint$ its set of algebraic integers. Then
+    the set $U_K$ of units of $\algint$ and its complement are Diophantine over
+    $\algint$.
+
+## It's all about satisfiability
+
+### Definition
+
+The *language of rings with unity* is
+
+$$\lang_{ring} :=\set{\mathtt{+, -, \cdot, 0, 1}}.$$
+
+. . .
+
+<div fragment="true">
+### Definition
+
+A set $S \subseteq A^n$ is *purely Diophantine* in the $\lang_{ring}$-structure $\mathfrak{A}$ if there exists an atomic $\lang_{ring}$-formula $ϕ$ such that
+
+$$\seq{α} \in S \Leftrightarrow \mathfrak{A} \models
+\exists \seq[m]{y} ϕ(\seq{α},\seq[m]{y}).$$
+</div>
 
 ## References

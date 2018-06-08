@@ -188,7 +188,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div class="fragment">
-<p>I write <span class="math inline">\(\mathbb{A}(x)\)</span> for the output of Turing machine <span class="math inline">\(\mathbb{A}\)</span> on input <span class="math inline">\(x\)</span>.</p>
+<p>I write <span class="math inline">\(\mathbb{A}(x)\)</span> for the output of Turing machine <span class="math inline">\(\mathbb{A}\)</span> on input <span class="math inline">\(x\)</span> if <span class="math inline">\(\mathbb{A}\)</span> halts on <span class="math inline">\(x\)</span>.</p>
 </div>
 </section><section id="decision-problems" class="slide level2">
 <h2>Decision problems</h2>
@@ -206,17 +206,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Decidability</h2>
 <h3 id="definition-2">Definition</h3>
 <ul>
-<li>A partial function <span class="math inline">\(f: ω \to ω\)</span> is <em>computable</em> if there is a Turing machine $ with <span class="math inline">\(\mathbb{A}(x) = f(x)\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>.</li>
-<li>A decision problem is <em>decidable</em> if its characteristic function is computable.</li>
-<li>A decision problem <span class="math inline">\(Q\)</span> is <em>semi-decidable</em> or <em>computably enumerable</em> if there is a Turing machine that returns <span class="math inline">\(\mathtt{1}\)</span> on all members of <span class="math inline">\(Q\)</span>.</li>
+<li class="fragment">A partial function <span class="math inline">\(f: ω \to ω\)</span> is <em>computable</em> if there is a Turing machine <span class="math inline">\(\mathbb{A}\)</span> with <span class="math inline">\(\mathbb{A}(x) = f(x)\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>.</li>
+<li class="fragment">A decision problem is <em>decidable</em> if its characteristic function is computable.</li>
+<li class="fragment">A decision problem <span class="math inline">\(Q\)</span> is <em>semi-decidable</em> or <em>computably enumerable</em> if there is a Turing machine that returns <span class="math inline">\(\mathtt{1}\)</span> on all members of <span class="math inline">\(Q\)</span>.</li>
+</ul>
+</section><section id="characterizations-of-semi-decidable-sets" class="slide level2">
+<h2>Characterizations of semi-decidable sets</h2>
+<h3 id="proposition">Proposition</h3>
+<p>Let <span class="math inline">\(Q \subseteq ω\)</span> be a problem. The following are equivalent.</p>
+<ul>
+<li><span class="math inline">\(Q\)</span> is semi-decidable.</li>
+<li><span class="math inline">\(Q\)</span> is the range of a computable function.</li>
+<li>There exists a computable binary relation <span class="math inline">\(R\)</span> on <span class="math inline">\(ω^2\)</span> such that <span class="math display">\[ x \in Q \Leftrightarrow \exists y : R(x, y)\]</span></li>
 </ul>
 </section><section id="the-mother-of-all-undecidablility" class="slide level2">
 <h2>The mother of all undecidablility</h2>
 <h3 id="definition-3">Definition</h3>
 <p>The <em>halting set</em> is the set of all codes of Turing machines <span class="math inline">\(\mathbb{A}\)</span> that halt upon receiving their code as input i.e.</p>
-<p><span class="math display">\[\mathcal{K} := \left\lbrace \ulcorner \mathbb{A} \urcorner | \mathbb{A} \text{ halts on } \ulcorner \mathbb{A} \urcorner \right\rbrace\]</span></p>
+<p><span class="math display">\[\mathcal{K} := \left\lbrace \ulcorner \mathbb{A} \urcorner \mid \mathbb{A} \text{ halts on } \ulcorner \mathbb{A} \urcorner \right\rbrace\]</span></p>
+<div class="fragment">
+<div data-fragment="true">
 <h3 id="theorem">Theorem</h3>
 <p>The halting set is semi-decidable but not decidable.</p>
+</div>
+</div>
+</section></section>
+<section><section id="diophantine-sets-and-variants-of-hilberts-tenth-problem" class="title-slide slide level1"><h1>Diophantine sets and variants of Hilbert’s tenth problem</h1></section><section id="diophantine-sets" class="slide level2">
+<h2>Diophantine Sets</h2>
+<h3 id="definition-4">Definition</h3>
+<p>Let <span class="math inline">\(R\)</span> be a commutative ring with unit. A set <span class="math inline">\(S \subseteq R^n\)</span> is called <em>Diophantine</em> if there exists a polynomial <span class="math inline">\(p \in R[{X}_1, \ldots,{X}_{n}, {Y}_1, \ldots,{Y}_{m}]\)</span> such that</p>
+<p><span class="math display">\[({x}_1, \ldots,{x}_{n}) \in S \Leftrightarrow \exists {y}_1, \ldots,{y}_{m} \in R^m : p({x}_1, \ldots,{x}_{n}, {y}_1, \ldots,{y}_{m}) = 0\]</span></p>
+</section><section class="slide level2">
+
+<div style="font-size: 200%;">
+<strong>Which sets are Diophantine?</strong>
+</div>
+</section><section id="diophantine-sets-1" class="slide level2">
+<h2>Diophantine Sets</h2>
+<h3 id="examples">Examples</h3>
+<ul>
+<li class="fragment">Let <span class="math inline">\(R\)</span> be an integral domain. Then every finite set is Diophantine.</li>
+<li class="fragment">Let <span class="math inline">\(R\)</span> be a commutative ring with unit. Then divisibility is Diophantine over <span class="math inline">\(R\)</span>.</li>
+<li class="fragment">The set of natural numbers <span class="math inline">\(ℕ\)</span> is Diophantine over <span class="math inline">\(ℤ\)</span>.</li>
+<li class="fragment">Let <span class="math inline">\(K\)</span> be a number field and <span class="math inline">\(\mathcal{O}_{K}\)</span> its ring of algebraic integers. Then <span class="math inline">\(\mathcal{O}_{K}\setminus \left\lbrace 0 \right\rbrace\)</span> is Diophantine over <span class="math inline">\(\mathcal{O}_{K}\)</span>.</li>
+<li class="fragment">Let <span class="math inline">\(K\)</span> be a number field and <span class="math inline">\(\mathcal{O}_{K}\)</span> its set of algebraic integers. Then the set <span class="math inline">\(U_K\)</span> of units of <span class="math inline">\(\mathcal{O}_{K}\)</span> and its complement are Diophantine over <span class="math inline">\(\mathcal{O}_{K}\)</span>.</li>
+</ul>
+</section><section id="its-all-about-satisfiability" class="slide level2">
+<h2>It’s all about satisfiability</h2>
+<h3 id="definition-5">Definition</h3>
+<p>The <em>language of rings with unity</em> is</p>
+<p><span class="math display">\[\mathcal{L}_{ring} :=\left\lbrace \mathtt{+, -, \cdot, 0, 1} \right\rbrace.\]</span></p>
+<div class="fragment">
+<div data-fragment="true">
+<h3 id="definition-6">Definition</h3>
+<p>A set <span class="math inline">\(S \subseteq A^n\)</span> is <em>purely Diophantine</em> in the <span class="math inline">\(\mathcal{L}_{ring}\)</span>-structure <span class="math inline">\(\mathfrak{A}\)</span> if there exists an atomic <span class="math inline">\(\mathcal{L}_{ring}\)</span>-formula <span class="math inline">\(ϕ\)</span> such that</p>
+<p><span class="math display">\[{α}_1, \ldots,{α}_{n} \in S \Leftrightarrow \mathfrak{A} \models
+\exists {y}_1, \ldots,{y}_{m} ϕ({α}_1, \ldots,{α}_{n},{y}_1, \ldots,{y}_{m}).\]</span></p>
+</div>
+</div>
 </section><section id="references" class="slide level2 unnumbered">
 <h2>References</h2>
 <div id="refs" class="references">
