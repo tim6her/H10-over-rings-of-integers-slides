@@ -75,7 +75,10 @@ keywords: [number theory, theoretical computer science, decidability]
 > <span class="fragment highlight-current-red" data-fragment-index="2">
     equation is solvable
   </span>
-> in rational integers.
+> in
+> <span class="fragment highlight-current-red" data-fragment-index="3">
+    rational integers.
+  </span>
 >
 > – @Hilbert1900
 :::
@@ -126,26 +129,51 @@ demands that the following axioms are satisfied
 δ("overflow", '_') = ("return",   '1', -1)
 δ("return",   '§') = ("halt",     '§', 0 )
 δ("return",   b)   = ("return",   b  , -1)
+δ("halt",     b)   = ("halt",     b  , 0 )
 ```
 :::
 ::: {.column width="40%"}
 <div class="image-float">
-  <p class="fragment current-visible" data-fragment-index="0" style="position: relative; left:20px; top:20px;">
-  <a href="imgs/turing_add1_1.svg"><img src="imgs/turing_add1_1.svg" width="400vh"/></a></p>
+  <p class="fragment current-visible" data-fragment-index="0" style="position: relative; left:15px; top:15px;">
+    <a href="imgs/turing_add1_1.svg">
+      <img src="imgs/turing_add1_1.svg" width="400vh"/>
+    </a>
+  </p>
   <p class="fragment current-visible" data-fragment-index="1" style="position:absolute; left:20px; top:20px;">
-  <a href="imgs/turing_add1_2.svg"><img src="imgs/turing_add1_2.svg" width="400vh"/></a></p>
+    <a href="imgs/turing_add1_2.svg">
+      <img src="imgs/turing_add1_2.svg" width="400vh"/>
+    </a>
+  </p>
   <p class="fragment current-visible" data-fragment-index="2" style="position:absolute; left:20px; top:20px;">
-  <a href="imgs/turing_add1_3.svg"><img src="imgs/turing_add1_3.svg" width="400vh"/></a></p>
+    <a href="imgs/turing_add1_3.svg">
+      <img src="imgs/turing_add1_3.svg" width="400vh"/>
+    </a>
+  </p>
   <p class="fragment current-visible" data-fragment-index="3" style="position:absolute; left:20px; top:20px;">
-  <a href="imgs/turing_add1_4.svg"><img src="imgs/turing_add1_4.svg" width="400vh"/></a></p>
+    <a href="imgs/turing_add1_4.svg">
+      <img src="imgs/turing_add1_4.svg" width="400vh"/>
+    </a>
+  </p>
   <p class="fragment current-visible" data-fragment-index="4" style="position:absolute; left:20px; top:20px;">
-  <a href="imgs/turing_add1_5.svg"><img src="imgs/turing_add1_5.svg" width="400vh"/></a></p>
+    <a href="imgs/turing_add1_5.svg">
+      <img src="imgs/turing_add1_5.svg" width="400vh"/>
+    </a>
+  </p>
   <p class="fragment current-visible" data-fragment-index="5" style="position:absolute; left:20px; top:20px;">
-  <a href="imgs/turing_add1_6.svg"><img src="imgs/turing_add1_6.svg" width="400vh"/></a></p>
+    <a href="imgs/turing_add1_6.svg">
+      <img src="imgs/turing_add1_6.svg" width="400vh"/>
+    </a>
+  </p>
   <p class="fragment current-visible" data-fragment-index="6" style="position:absolute; left:20px; top:20px;">
-  <a href="imgs/turing_add1_7.svg"><img src="imgs/turing_add1_7.svg" width="400vh"/></a></p>
+    <a href="imgs/turing_add1_7.svg">
+      <img src="imgs/turing_add1_7.svg" width="400vh"/>
+    </a>
+  </p>
   <p class="fragment" data-fragment-index="7" style="position:absolute; left:20px; top:20px;">
-  <a href="imgs/turing_add1_8.svg"><img src="imgs/turing_add1_8.svg" width="400vh"/></a></p>
+    <a href="imgs/turing_add1_8.svg">
+      <img src="imgs/turing_add1_8.svg" width="400vh"/>
+    </a>
+  </p>
 </div>
 :::
 ::::::::::::::
@@ -197,7 +225,7 @@ Let $Q \subseteq ω$ be a problem. The following are equivalent.
 * There exists a computable binary relation $R$ on $ω^2$ such that
   $$ x \in Q \Leftrightarrow \exists y : R(x, y)$$
 
-## The mother of all undecidablility
+## The halting set
 
 ### Definition
 
@@ -213,9 +241,120 @@ $$\mathcal{K} := \set{\enc{\mathbb{A}} \mid \mathbb{A} \text{ halts on } \enc{\m
 The halting set is semi-decidable but not decidable.
 </div>
 
+---
+
+### Sketch of Proof
+
+Assume $\mathbb{B}$ decides the halting set i.e.
+
+$$\mathbb{B}(\enc{\mathbb{A}}) =
+\begin{cases}
+  \one & \text{if } \mathbb{A} \text{ halts on } \enc{\mathbb{A}} \\
+  \zer & \text{otherwise}
+\end{cases}.
+$$
+
+. . .
+
+Consider $\mathbb{B}'$ defined by
+
+$$\mathbb{B}'(\enc{\mathbb{A}}) =
+\begin{cases}
+  \one & \text{if } \mathbb{B}(\enc{\mathbb{A}}) = \zer \\
+  \uparrow & \text{otherwise}
+\end{cases}.
+$$
+
+. . .
+
+What is $\mathbb{B}'(\enc{\mathbb{B}'})$?
+
+
+
+# Some number theory
+
+## Number fields
+
+### Definition
+
+A *number field* $K$ is a finite extension of the rationals $ℚ$.
+
+. . .
+
+<div fragment="true">
+### Examples
+
+* $ℚ[i] = \set{x + i y \mid x, y ∈ ℚ}$
+* $ℚ[\sqrt[3]{2}] = \set{x + \sqrt[3]{2} y + \sqrt[3]{4} z}$
+</div>
+
+
+## Algebraic integers
+
+### Definition
+
+An element $α \in ℂ$ is called *algebraic integer* if there exists a monic polynomial $p \in ℤ[X]$ such that
+
+$$p(α) = α^n + c_{n - 1} α^{n - 1} + … + c_0 = 0$$
+
+> * We write $\algint[]$ for the set of all algebraic integers …
+> * … and if $K$ is a number field, we set $\algint = \algint[] ∩ K$.
+
+## Properties of algberaic integers
+
+### Proposition
+
+> * Both $\algint[]$ and $\algint$ are subrings of $ℂ$ (for all $K$).
+> * $\algint$ is a finitely generated free $ℤ$-module (for all $K$). A basis is
+    called *integral basis*.
+> * The quotient field of $\algint$ is (isomorphic to) $K$.
 
 
 # Diophantine sets and variants of Hilbert's tenth problem
+
+## Purely Diophantine sets
+
+### Definition
+
+Let $R$ be a commutative ring with unit. A set $S \subseteq R^n$ is called
+*purely Diophantine* if there exists a polynomial $p \in ℤ[\seq{X}, \seq[m]{Y}]$
+such that
+
+$$(\seq{x}) \in S \Leftrightarrow \exists \seq[m]{y} \in R^m : p(\seq{x}, \seq[m]{y}) = 0$$
+
+
+## Examples of purely Diophantine sets
+
+Let $R$ be a commutative ring with unit. Then divisibility is purely Diophantine
+over $R$.
+
+. . .
+
+### Proof
+
+We have $a | b$ iff
+
+$$\exists y: a y = b.$$
+
+
+## Alternative characterization
+
+### Definition
+
+The language of rings with unit is $\lang_{ring} = \set{+, -, \cdot, 0, 1}$.
+
+. . .
+
+<div fragment="true">
+  <h3>Remark</h3>
+
+  A set $S \subseteq R^n$ is purely Diophantine over the ring structure
+  $\mathfrak{R} = ⟨R; +^{\mathfrak{R}}, -^{\mathfrak{R}}, \cdot^{\mathfrak{R}}; 0^{\mathfrak{R}}, 1^{\mathfrak{R}}⟩$ iff
+
+  $$(\seq{α}) ∈ S \quad ⇔ \quad \mathfrak{R} \models ∃ \seq[m]{y}: φ(\seq{α}, \seq[m]{y})$$
+
+  holds for an atomic $\lang_{ring}$-formula $φ$.
+</div>
 
 
 ## Diophantine Sets
@@ -228,41 +367,167 @@ that
 
 $$(\seq{x}) \in S \Leftrightarrow \exists \seq[m]{y} \in R^m : p(\seq{x}, \seq[m]{y}) = 0$$
 
----
 
-<div style="font-size: 200%;"><strong>Which sets are Diophantine?</strong></div>
+## Examples of Diophantine Sets
+
+Let $R$ be an integral domain. Then every finite set $S$ is Diophantine.
+
+. . .
+
+### Proof
+
+Take
+
+$$p(X) = \prod_{a ∈ S} (X - a).$$
 
 
-## Diophantine Sets
+## Examples of Diophantine sets
 
-### Examples
+The set of natural numbers $ℕ$ is Diophantine over $ℤ$.
 
-> * Let $R$ be an integral domain. Then every finite set is Diophantine.
-> * Let $R$ be a commutative ring with unit. Then divisibility is Diophantine over $R$.
-> * The set of natural numbers $ℕ$ is Diophantine over $ℤ$.
-> * Let $K$ be a number field and $\algint$ its ring of algebraic integers.
-    Then $\algint \setminus \set{0}$ is Diophantine over $\algint$.
-> * Let $K$ be a number field and $\algint$ its set of algebraic integers. Then
-    the set $U_K$ of units of $\algint$ and its complement are Diophantine over
-    $\algint$.
+. . .
 
-## It's all about satisfiability
+### Proof
+
+Using Minkowski's theorem on convex bodies one can prove that
+
+$$x ∈ ℕ \quad \Leftrightarrow \quad \exists y_1, y_2, y_3, y_4 \in ℤ: x = y_1^2 + y_2^2 + y_3^2 + y_4^2.$$
+
+## Examples of Diophantine sets
+
+Let $K$ be a number field and $\algint$ its ring of algebraic integers.
+Then $\algint \setminus \set{0}$ is Diophantine over $\algint$.
+
+. . .
+
+### Proof
+
+Using the Chinese remainder theorem one can prove that
+
+$$α ≠ 0 \quad ⇔ \quad ∃ β, γ ∈ \algint : α β = (2 γ - 1)(3 γ - 1).$$
+
+
+## Alternative characterization
 
 ### Definition
 
-The *language of rings with unity* is
-
-$$\lang_{ring} :=\set{\mathtt{+, -, \cdot, 0, 1}}.$$
+Let $R$ be an at most countable commutatve ring with unit.
+The $R$-language  is $\lang_{R} = \lang_{ring} ∪ \set{c_r \mid r ∈ R}$.
 
 . . .
 
 <div fragment="true">
+  <h3>Remark</h3>
+
+  A set $S \subseteq R^n$ is Diophantine over $R$ iff
+
+  $$(\seq{α}) ∈ S \quad ⇔ \quad \mathfrak{R} \models ∃ \seq[m]{y}: φ(\seq{α}, \seq[m]{y})$$
+
+  holds for an atomic $\lang_{R}$-formula $φ$.
+</div>
+
+---
+
+<div style="font-size: 200%;">
+  <strong>
+    Which sets are Diophantine?
+  </strong>
+</div>
+
+
+## Historical development
+
+TODO: Write some stuff.
+
+
+# Computable rings and structural methods
+
+## Computable ring
+
 ### Definition
 
-A set $S \subseteq A^n$ is *purely Diophantine* in the $\lang_{ring}$-structure $\mathfrak{A}$ if there exists an atomic $\lang_{ring}$-formula $ϕ$ such that
+> * A ring $R \subseteq ω$ is *computable* if $R$ is
+    decidable and all ring operations are computable.
+> * A ring $R$ is *computable presentable* if $R$ is isomorphic to a computable
+    ring.
 
-$$\seq{α} \in S \Leftrightarrow \mathfrak{A} \models
-\exists \seq[m]{y} ϕ(\seq{α},\seq[m]{y}).$$
+
+## Examples of computable rings
+
+> * $ℤ$ is computably presentable.
+> * Using an integral basis, the ring of integers $\algint$ is computably
+    presentable.
+> * If $R$ is a computable integral domain then the ring of polynomials
+    $R[X_1, X_2, …]$ is computably presentable.
+
+
+## Connection to Hilbert's tenth problem
+
+### Corollary
+
+Let $K$ be a number field. Then Hilbert's tenth problem over $\algint$ is
+semi-decidable.
+
+. . .
+
+<div fragment="true">
+### Proof
+
+
 </div>
+
+
+## Computable categoricity
+
+### Proposition
+
+Let $R$ be computably presentable, finitely generated ring. Then between any
+pair of computable representations $R_1, R_2$ of $R$ there is a computable
+ring-isomorphism $φ: R_1 → R_2$.
+
+. . .
+
+<div fragment="true">
+### Corollary
+
+The decidability of Hilbert's tenth problem over $\algint$ does not depend on
+the computable representation of $\algint$.
+</div>
+
+<div class="notes">
+### Sketch of proof
+
+Associate $R = R_1$ and let $R = ⟨\seq{ξ}⟩$. By assumption there is an
+isomorphism $φ: R → R_2$ and $R_2 = ⟨φ(ξ_1), …, φ(ξ_n)⟩$.
+
+Now store $φ(ξ_1), …, φ(ξ_n)$ and there multiplication table in memory and
+extend $φ$.
+</div>
+
+
+<!-- ## Connection to Hilbert's tenth problem
+
+Given a ring $R$ we consider $4$ theories.
+
+:::::::::::::: {.columns}
+::: {.column width="50%"}
+
+**$\lang_{ring}$-theories**
+
+$\mathtt{Th}_{∃}(R)$
+
+$\mathtt{Th}(R)$
+
+:::
+::: {.column width="50%"}
+
+**$\lang_{R}$-theories**
+
+$D_{∃}(R)$
+
+$D^c(R)$
+
+:::
+:::::::::::::: -->
 
 ## References

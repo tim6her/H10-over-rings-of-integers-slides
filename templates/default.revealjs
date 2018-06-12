@@ -266,7 +266,6 @@ $if(mathjax)$
           { src: '$revealjs-url$/plugin/math/math.js', async: true },
 $endif$
           { src: '$revealjs-url$/plugin/notes/notes.js', async: true },
-          { src: '$revealjs-url$/plugin/menu/menu.js' }
         ]
       });
     </script>

@@ -36,6 +36,7 @@ body.dark .reveal h6 {
 
 .reveal {
     font-family: "Cormorant Garamond";
+    font-variant-numeric: tabular-nums;
     font-size: 32px;
     font-weight: normal;
     color: #33474b; }
