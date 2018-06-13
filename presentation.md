@@ -439,10 +439,10 @@ The $R$-language  is $\lang_{R} = \lang_{ring} ∪ \set{c_r \mid r ∈ R}$.
 Given a commutative ring with unit $R$ we consider $4$ theories.
 
 
-|                                | $\lang_{ring}$-theories | $\lang_{R}$-theories |
-| ------------------------------ | ----------------------- | -------------------- |
-| **$∃$**-quantified            | $\mathtt{Th}_{∃}(R)$    | $D_{∃}(R)$           |
-| **$∃$**- or **$∀$**-quantified | $\mathtt{Th}(R)$        | $D^c(R)$             |
+|                                | $\lang_{ring}$-theories                 | $\lang_{R}$-theories                                                        |
+| ------------------------------ | --------------------------------------- | --------------------------------------------------------------------------- |
+| **$∃$**-quantified             | purely Diophantine $\mathtt{H10}^*(R)$ | <span class="fragment highlight-current-red">Diophantine  $\mathtt{H10}(R)$</span> |
+| **$∃$**- or **$∀$**-quantified | full theory $\mathtt{Th}(R)$            | complete diagram $D^c(R)$                                                   |
 
 
 ---
@@ -454,12 +454,78 @@ Given a commutative ring with unit $R$ we consider $4$ theories.
 </div>
 
 
-## Historical development
+## What we know 1
 
-TODO: Write some stuff.
+### Theorem [@Goedel1931;@Rosser1936]
+
+The full theory $\mathtt{Th}(ℕ)$ is undecidable.
+
+. . .
+
+<div fragment="true">
+### Corollary
+
+The full theory $\mathtt{Th}(ℤ)$ is undecidable.
+</div>
+
+. . .
+
+<div fragment="true">
+### Theorem [@Robinson1959]
+
+The full first order theories $\mathtt{Th}(K)$ and $\mathtt{Th}(\algint)$ are undecidable for every number field $K$.
+</div>
 
 
-# Computable rings and structural methods
+## What we know 2
+
+### Theorem
+
+The full theory $\mathtt{Th}(ℂ)$ is decidable. Thus, $\mathtt{H10}^*(ℂ)$ is decidable.
+
+. . .
+
+<div fragment="true">
+### Theorem [@Rumely1986;@Dries1988]
+
+The theories $H10(\algint[])$ and $\mathtt{Th}(\algint[])$ are decidable.
+</div>
+
+
+## What we know 3
+
+### DPRM theorem [@Matijasevic1970]
+
+A subset of $ℤ$ is semi-decidable if and only if it is Diophantine over $ℤ$.
+
+. . .
+
+<div fragment="true">
+### Corollary
+
+$\mathtt{H10}(ℤ)$ is undecidable.
+</div>
+
+
+## What we know 4
+
+### Theorem
+
+$\mathtt{H10}(\algint)$ is undecidable if
+
+* $K$ is totally real [@Denef1980],
+* $K$ has exactly one pair of non-real embeddings [@Pheidas1988; @Shlapentokh1989],
+* if $K$ is a quadratic extension of a totally real number field [@Denef1978], or
+* if $K$ is a subfield of a field with one of the properties above [@Shapiro1989].
+
+
+## What we would like to know
+
+> * Is $\mathtt{H10}(\algint)$ and $\mathtt{H10}(K)$ undecidable for all number fields $K$?
+> * Especially: Is $\mathtt{H10}(ℚ)$ decidable?
+
+
+# How do we know it
 
 ## Computable ring
 
@@ -578,7 +644,7 @@ Divide by $p_1^m$ or $p_2^m$ and find that $h$ or $\overline{h}$ has a root.
 
 ### Lemma
 
-Let $L / K$ be an extension of algebraic number fields. If H10 is undecidable over $\algint$ and $\algint$ is Diophantine over $\algint[L]$, then H10 is undecidable over $\algint[L]$.
+Let $L / K$ be an extension of algebraic number fields. If $\mathtt{H10}$ is undecidable over $\algint$ and $\algint$ is Diophantine over $\algint[L]$, then $\mathtt{H10}$ is undecidable over $\algint[L]$.
 
 . . .
 

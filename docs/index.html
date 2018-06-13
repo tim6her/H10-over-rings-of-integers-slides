@@ -365,6 +365,11 @@ Remark
 <h2>Connection to Hilbert’s tenth problem</h2>
 <p>Given a commutative ring with unit <span class="math inline">\(R\)</span> we consider <span class="math inline">\(4\)</span> theories.</p>
 <table>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 27%" />
+<col style="width: 52%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th></th>
@@ -375,13 +380,13 @@ Remark
 <tbody>
 <tr class="odd">
 <td><strong><span class="math inline">\(∃\)</span></strong>-quantified</td>
-<td><span class="math inline">\(\mathtt{Th}_{∃}(R)\)</span></td>
-<td><span class="math inline">\(D_{∃}(R)\)</span></td>
+<td>purely Diophantine <span class="math inline">\(\mathtt{H10}^*(R)\)</span></td>
+<td><span class="fragment highlight-current-red">Diophantine <span class="math inline">\(\mathtt{H10}(R)\)</span></span></td>
 </tr>
 <tr class="even">
 <td><strong><span class="math inline">\(∃\)</span></strong>- or <strong><span class="math inline">\(∀\)</span></strong>-quantified</td>
-<td><span class="math inline">\(\mathtt{Th}(R)\)</span></td>
-<td><span class="math inline">\(D^c(R)\)</span></td>
+<td>full theory <span class="math inline">\(\mathtt{Th}(R)\)</span></td>
+<td>complete diagram <span class="math inline">\(D^c(R)\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -390,11 +395,60 @@ Remark
 <div style="font-size: 200%;">
 <p><strong> Which sets are Diophantine? </strong></p>
 </div>
-</section><section id="historical-development" class="slide level2">
-<h2>Historical development</h2>
-<p>TODO: Write some stuff.</p>
+</section><section id="what-we-know-1" class="slide level2">
+<h2>What we know 1</h2>
+<h3 id="theorem-goedel1931rosser1936">Theorem <span class="citation" data-cites="Goedel1931 Rosser1936">(Gödel 1931; Rosser 1936)</span></h3>
+<p>The full theory <span class="math inline">\(\mathtt{Th}(ℕ)\)</span> is undecidable.</p>
+<div class="fragment">
+<div data-fragment="true">
+<h3 id="corollary">Corollary</h3>
+<p>The full theory <span class="math inline">\(\mathtt{Th}(ℤ)\)</span> is undecidable.</p>
+</div>
+</div>
+<div class="fragment">
+<div data-fragment="true">
+<h3 id="theorem-robinson1959">Theorem <span class="citation" data-cites="Robinson1959">(Robinson 1959)</span></h3>
+<p>The full first order theories <span class="math inline">\(\mathtt{Th}(K)\)</span> and <span class="math inline">\(\mathtt{Th}(\mathcal{O}_{K})\)</span> are undecidable for every number field <span class="math inline">\(K\)</span>.</p>
+</div>
+</div>
+</section><section id="what-we-know-2" class="slide level2">
+<h2>What we know 2</h2>
+<h3 id="theorem-1">Theorem</h3>
+<p>The full theory <span class="math inline">\(\mathtt{Th}(ℂ)\)</span> is decidable. Thus, <span class="math inline">\(\mathtt{H10}^*(ℂ)\)</span> is decidable.</p>
+<div class="fragment">
+<div data-fragment="true">
+<h3 id="theorem-rumely1986dries1988">Theorem <span class="citation" data-cites="Rumely1986 Dries1988">(Rumely 1986; Dries 1988)</span></h3>
+<p>The theories <span class="math inline">\(H10(\mathcal{O}_{})\)</span> and <span class="math inline">\(\mathtt{Th}(\mathcal{O}_{})\)</span> are decidable.</p>
+</div>
+</div>
+</section><section id="what-we-know-3" class="slide level2">
+<h2>What we know 3</h2>
+<h3 id="dprm-theorem-matijasevic1970">DPRM theorem <span class="citation" data-cites="Matijasevic1970">(Matijasevič 1970)</span></h3>
+<p>A subset of <span class="math inline">\(ℤ\)</span> is semi-decidable if and only if it is Diophantine over <span class="math inline">\(ℤ\)</span>.</p>
+<div class="fragment">
+<div data-fragment="true">
+<h3 id="corollary-1">Corollary</h3>
+<p><span class="math inline">\(\mathtt{H10}(ℤ)\)</span> is undecidable.</p>
+</div>
+</div>
+</section><section id="what-we-know-4" class="slide level2">
+<h2>What we know 4</h2>
+<h3 id="theorem-2">Theorem</h3>
+<p><span class="math inline">\(\mathtt{H10}(\mathcal{O}_{K})\)</span> is undecidable if</p>
+<ul>
+<li><span class="math inline">\(K\)</span> is totally real <span class="citation" data-cites="Denef1980">(Denef 1980)</span>,</li>
+<li><span class="math inline">\(K\)</span> has exactly one pair of non-real embeddings <span class="citation" data-cites="Pheidas1988 Shlapentokh1989">(Pheidas 1988; Shlapentokh 1989)</span>,</li>
+<li>if <span class="math inline">\(K\)</span> is a quadratic extension of a totally real number field <span class="citation" data-cites="Denef1978">(Denef and Lipshitz 1978)</span>, or</li>
+<li>if <span class="math inline">\(K\)</span> is a subfield of a field with one of the properties above <span class="citation" data-cites="Shapiro1989">(Shapiro and Shlapentokh 1989)</span>.</li>
+</ul>
+</section><section id="what-we-would-like-to-know" class="slide level2">
+<h2>What we would like to know</h2>
+<ul>
+<li class="fragment">Is <span class="math inline">\(\mathtt{H10}(\mathcal{O}_{K})\)</span> and <span class="math inline">\(\mathtt{H10}(K)\)</span> undecidable for all number fields <span class="math inline">\(K\)</span>?</li>
+<li class="fragment">Especially: Is <span class="math inline">\(\mathtt{H10}(ℚ)\)</span> decidable?</li>
+</ul>
 </section></section>
-<section><section id="computable-rings-and-structural-methods" class="title-slide slide level1"><h1>Computable rings and structural methods</h1></section><section id="computable-ring" class="slide level2">
+<section><section id="how-do-we-know-it" class="title-slide slide level1"><h1>How do we know it</h1></section><section id="computable-ring" class="slide level2">
 <h2>Computable ring</h2>
 <h3 id="definition-10">Definition</h3>
 <ul>
@@ -410,7 +464,7 @@ Remark
 </ul>
 </section><section id="connection-to-hilberts-tenth-problem-1" class="slide level2">
 <h2>Connection to Hilbert’s tenth problem</h2>
-<h3 id="corollary">Corollary</h3>
+<h3 id="corollary-2">Corollary</h3>
 <p>Let <span class="math inline">\(K\)</span> be a number field. Then Hilbert’s tenth problem over <span class="math inline">\(\mathcal{O}_{K}\)</span> is semi-decidable.</p>
 <div class="fragment fade-in">
 <h3 id="proof-4">Proof</h3>
@@ -427,7 +481,7 @@ Remark
 <p>Let <span class="math inline">\(R\)</span> be computably presentable, finitely generated ring. Then between any pair of computable representations <span class="math inline">\(R_1, R_2\)</span> of <span class="math inline">\(R\)</span> there is a computable ring-isomorphism <span class="math inline">\(φ: R_1 → R_2\)</span>.</p>
 <div class="fragment">
 <div data-fragment="true">
-<h3 id="corollary-1">Corollary</h3>
+<h3 id="corollary-3">Corollary</h3>
 <p>The decidability of Hilbert’s tenth problem over <span class="math inline">\(\mathcal{O}_{K}\)</span> does not depend on the computable representation of <span class="math inline">\(\mathcal{O}_{K}\)</span>.</p>
 </div>
 <aside class="notes">
@@ -466,7 +520,7 @@ Remark
 </section><section id="going-up" class="slide level2">
 <h2>Going up</h2>
 <h3 id="lemma-1">Lemma</h3>
-<p>Let <span class="math inline">\(L / K\)</span> be an extension of algebraic number fields. If H10 is undecidable over <span class="math inline">\(\mathcal{O}_{K}\)</span> and <span class="math inline">\(\mathcal{O}_{K}\)</span> is Diophantine over <span class="math inline">\(\mathcal{O}_{L}\)</span>, then H10 is undecidable over <span class="math inline">\(\mathcal{O}_{L}\)</span>.</p>
+<p>Let <span class="math inline">\(L / K\)</span> be an extension of algebraic number fields. If <span class="math inline">\(\mathtt{H10}\)</span> is undecidable over <span class="math inline">\(\mathcal{O}_{K}\)</span> and <span class="math inline">\(\mathcal{O}_{K}\)</span> is Diophantine over <span class="math inline">\(\mathcal{O}_{L}\)</span>, then <span class="math inline">\(\mathtt{H10}\)</span> is undecidable over <span class="math inline">\(\mathcal{O}_{L}\)</span>.</p>
 <div class="fragment">
 <div data-fragment="true">
 <h3 id="proof-6">Proof</h3>
@@ -477,11 +531,11 @@ Remark
 </div>
 </section><section id="a-diophantine-definition-of-rational-integers-is-key" class="slide level2">
 <h2>A Diophantine definition of rational integers is key</h2>
-<h3 id="theorem-1">Theorem</h3>
+<h3 id="theorem-3">Theorem</h3>
 <p>Every semi-decidable subset of <span class="math inline">\(\mathcal{O}_{K}\)</span> is Diophantine if and only if <span class="math inline">\(ℤ\)</span> is Diophantine over <span class="math inline">\(\mathcal{O}_{K}\)</span>.</p>
 </section><section id="strong-vertical-method-of-denef-and-lipshitz" class="slide level2">
 <h2>Strong vertical method of Denef and Lipshitz</h2>
-<h3 id="theorem-2">Theorem</h3>
+<h3 id="theorem-4">Theorem</h3>
 <p>Let <span class="math inline">\(L /K\)</span> be an extension of number fields and <span class="math inline">\(n = [L : ℚ]\)</span>. If <span class="math inline">\(x, y ∈ \mathcal{O}_{L}\)</span> and <span class="math inline">\(α ∈ \mathcal{O}_{K}\)</span> satisfy</p>
 <ol type="1">
 <li><span class="math inline">\(y\)</span> is not a unit,</li>
@@ -494,8 +548,41 @@ Remark
 </section><section id="references" class="slide level2 unnumbered">
 <h2>References</h2>
 <div id="refs" class="references">
+<div id="ref-Denef1980">
+<p>Denef, J. 1980. “Diophantine Sets over Algebraic Integer Rings. II.” <em>Trans. Amer. Math. Soc.</em> 257 (1): 227–36. <a href="https://doi.org/10.2307/1998133" class="uri">https://doi.org/10.2307/1998133</a>.</p>
+</div>
+<div id="ref-Denef1978">
+<p>Denef, J., and L. Lipshitz. 1978. “Diophantine Sets over Some Rings of Algebraic Integers.” <em>J. London Math. Soc. (2)</em> 18 (3): 385–91. <a href="https://doi.org/10.1112/jlms/s2-18.3.385" class="uri">https://doi.org/10.1112/jlms/s2-18.3.385</a>.</p>
+</div>
+<div id="ref-Dries1988">
+<p>Dries, Lou van den. 1988. “Elimination Theory for the Ring of Algebraic Integers.” <em>J. Reine Angew. Math.</em> 388: 189–205. <a href="https://doi.org/10.1515/crll.1988.388.189" class="uri">https://doi.org/10.1515/crll.1988.388.189</a>.</p>
+</div>
+<div id="ref-Goedel1931">
+<p>Gödel, Kurt. 1931. “Über Formal Unentscheidbare Sätze Der Principia Mathematica Und Verwandter Systeme I.” <em>Monatsh. Math. Phys.</em> 38 (1): 173–98. <a href="https://doi.org/10.1007/BF01700692" class="uri">https://doi.org/10.1007/BF01700692</a>.</p>
+</div>
 <div id="ref-Hilbert1900">
 <p>Hilbert, David. 1900. “Mathematische Probleme. Vortrag, Gehalten Auf Dem Internationalen Mathematiker-Kongreß Zu Paris 1900.” <em>Nachrichten von Der Königl. Gesellschaft Der Wissenschaften Zu Göttingen.</em> Göttingen, 253–79.</p>
+</div>
+<div id="ref-Matijasevic1970">
+<p>Matijasevič, Ju. V. 1970. “The Diophantineness of Enumerable Sets.” <em>Doklady Akademii Nauk SSSR</em> 191: 279–82.</p>
+</div>
+<div id="ref-Pheidas1988">
+<p>Pheidas, Thanases. 1988. “Hilbert’s Tenth Problem for a Class of Rings of Algebraic Integers.” <em>Proc. Amer. Math. Soc.</em> 104 (2): 611–20. <a href="https://doi.org/10.2307/2047021" class="uri">https://doi.org/10.2307/2047021</a>.</p>
+</div>
+<div id="ref-Robinson1959">
+<p>Robinson, Julia. 1959. “The Undecidability of Algebraic Rings and Fields.” <em>Proc. Amer. Math. Soc.</em> 10: 950–57. <a href="https://doi.org/10.2307/2033628" class="uri">https://doi.org/10.2307/2033628</a>.</p>
+</div>
+<div id="ref-Rosser1936">
+<p>Rosser, Barkley. 1936. “Extensions of Some Theorems of Gödel and Church.” <em>Journal of Symbolic Logic</em> 1 (3). Cambridge University Press: 87–91. <a href="https://doi.org/10.2307/2269028" class="uri">https://doi.org/10.2307/2269028</a>.</p>
+</div>
+<div id="ref-Rumely1986">
+<p>Rumely, Robert S. 1986. “Arithmetic over the Ring of All Algebraic Integers.” <em>J. Reine Angew. Math.</em> 368: 127–33. <a href="https://doi.org/10.1515/crll.1986.368.127" class="uri">https://doi.org/10.1515/crll.1986.368.127</a>.</p>
+</div>
+<div id="ref-Shapiro1989">
+<p>Shapiro, Harold N., and Alexandra Shlapentokh. 1989. “Diophantine Relationships Between Algebraic Number Fields.” <em>Comm. Pure Appl. Math.</em> 42 (8). Wiley-Blackwell: 1113–22. <a href="https://doi.org/10.1002/cpa.3160420805" class="uri">https://doi.org/10.1002/cpa.3160420805</a>.</p>
+</div>
+<div id="ref-Shlapentokh1989">
+<p>Shlapentokh, Alexandra. 1989. “Extension of Hilbert’s Tenth Problem to Some Algebraic Number Fields.” <em>Comm. Pure Appl. Math.</em> 42 (7): 939–62. <a href="https://doi.org/10.1002/cpa.3160420703" class="uri">https://doi.org/10.1002/cpa.3160420703</a>.</p>
 </div>
 </div>
 </section></section>
