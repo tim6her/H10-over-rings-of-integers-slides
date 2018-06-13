@@ -30,7 +30,6 @@ keywords: [number theory, theoretical computer science, decidability]
 \DeclareMathOperator{\D}{\mathrm{D}}
 \DeclareMathOperator{\lcm}{\mathrm{lcm}}
 \DeclareMathOperator{\ord}{\mathrm{ord}}
-\DeclareMathOperator{\Quot}{Quot}
 
 \newcommand*{\sta}{\texttt{\S}}
 \newcommand*{\emp}{{\monomath \_}}
@@ -51,11 +50,12 @@ keywords: [number theory, theoretical computer science, decidability]
 \newcommand{\set}[1]{\left\lbrace #1 \right\rbrace}
 \newcommand*{\seq}[2][n]{{#2}_1, \ldots, {#2}_{#1}}
 \newcommand*{\lang}{\mathcal{L}}
+\newcommand*{\Quot}{\mathrm{Quot}}
 </span>
 
 :::::::::::::: {.columns}
 ::: {.column width="70%"}
-> Given a Diophantine equation with any number of unkown quantities and with
+> Given a Diophantine equation with any number of unknown quantities and with
 > <span class="fragment highlight-current-red" data-fragment-index="3">
     rational integral
   </span>
@@ -270,6 +270,14 @@ $$
 What is $\mathbb{B}'(\enc{\mathbb{B}'})$?
 
 
+## Church-Turing thesis
+
+I will use without hesitation:
+
+>   The class of intuitively computable
+>  functions coincides with the class of all Turing computable functions.
+
+
 
 # Some number theory
 
@@ -300,11 +308,11 @@ $$p(α) = α^n + c_{n - 1} α^{n - 1} + … + c_0 = 0$$
 > * We write $\algint[]$ for the set of all algebraic integers …
 > * … and if $K$ is a number field, we set $\algint = \algint[] ∩ K$.
 
-## Properties of algberaic integers
+## Properties of algebraic integers
 
 ### Proposition
 
-> * Both $\algint[]$ and $\algint$ are subrings of $ℂ$ (for all $K$).
+> * Both $\algint[]$ and $\algint$ are sub-rings of $ℂ$ (for all $K$).
 > * $\algint$ is a finitely generated free $ℤ$-module (for all $K$). A basis is
     called *integral basis*.
 > * The quotient field of $\algint$ is (isomorphic to) $K$.
@@ -320,7 +328,7 @@ Let $R$ be a commutative ring with unit. A set $S \subseteq R^n$ is called
 *purely Diophantine* if there exists a polynomial $p \in ℤ[\seq{X}, \seq[m]{Y}]$
 such that
 
-$$(\seq{x}) \in S \Leftrightarrow \exists \seq[m]{y} \in R^m : p(\seq{x}, \seq[m]{y}) = 0$$
+$$(\seq{α}) \in S \Leftrightarrow \exists \seq[m]{y} \in R^m : p(\seq{α}, \seq[m]{y}) = 0$$
 
 
 ## Examples of purely Diophantine sets
@@ -332,9 +340,9 @@ over $R$.
 
 ### Proof
 
-We have $a | b$ iff
+We have $a \mid b$ iff $\exists y ∈ R: a y = b$. Choose $p(a, b, y) = a y - b$ and obtain
 
-$$\exists y: a y = b.$$
+$$a \mid b \quad ⇔ \quad ∃ y ∈ R: p(a, b, y) = 0.$$
 
 
 ## Alternative characterization
@@ -365,7 +373,7 @@ Let $R$ be a commutative ring with unit. A set $S \subseteq R^n$ is called
 *Diophantine* if there exists a polynomial $p \in R[\seq{X}, \seq[m]{Y}]$ such
 that
 
-$$(\seq{x}) \in S \Leftrightarrow \exists \seq[m]{y} \in R^m : p(\seq{x}, \seq[m]{y}) = 0$$
+$$(\seq{α}) \in S \Leftrightarrow \exists \seq[m]{y} \in R^m : p(\seq{α}, \seq[m]{y}) = 0$$
 
 
 ## Examples of Diophantine Sets
@@ -411,7 +419,7 @@ $$α ≠ 0 \quad ⇔ \quad ∃ β, γ ∈ \algint : α β = (2 γ - 1)(3 γ - 1)
 
 ### Definition
 
-Let $R$ be an at most countable commutatve ring with unit.
+Let $R$ be an at most countable commutative ring with unit.
 The $R$-language  is $\lang_{R} = \lang_{ring} ∪ \set{c_r \mid r ∈ R}$.
 
 . . .
@@ -425,6 +433,17 @@ The $R$-language  is $\lang_{R} = \lang_{ring} ∪ \set{c_r \mid r ∈ R}$.
 
   holds for an atomic $\lang_{R}$-formula $φ$.
 </div>
+
+## Connection to Hilbert's tenth problem
+
+Given a commutative ring with unit $R$ we consider $4$ theories.
+
+
+|                                | $\lang_{ring}$-theories | $\lang_{R}$-theories |
+| ------------------------------ | ----------------------- | -------------------- |
+| **$∃$**-quantified            | $\mathtt{Th}_{∃}(R)$    | $D_{∃}(R)$           |
+| **$∃$**- or **$∀$**-quantified | $\mathtt{Th}(R)$        | $D^c(R)$             |
+
 
 ---
 
@@ -448,11 +467,11 @@ TODO: Write some stuff.
 
 > * A ring $R \subseteq ω$ is *computable* if $R$ is
     decidable and all ring operations are computable.
-> * A ring $R$ is *computable presentable* if $R$ is isomorphic to a computable
+> * A ring $R$ is *computably presentable* if $R$ is isomorphic to a computable
     ring.
 
 
-## Examples of computable rings
+## Examples of computably presentable rings
 
 > * $ℤ$ is computably presentable.
 > * Using an integral basis, the ring of integers $\algint$ is computably
@@ -468,14 +487,19 @@ TODO: Write some stuff.
 Let $K$ be a number field. Then Hilbert's tenth problem over $\algint$ is
 semi-decidable.
 
-. . .
-
-<div fragment="true">
+<div class="fragment fade-in">
 ### Proof
 
-
+Let $p ∈ \algint [\seq{X}]$ be a polynomial. Interpret $p: R^n → R$, then $p$ is computable.
 </div>
 
+<div class="fragment fade-in">
+Deciding whether $p$ has roots in $\algint$ is equivalent to deciding
+
+$$∃ \seq{x} : p(\seq{x}) \doteq 0,$$
+
+which is semi-decidable.
+</div>
 
 ## Computable categoricity
 
@@ -504,30 +528,79 @@ Now store $φ(ξ_1), …, φ(ξ_n)$ and there multiplication table in memory and
 extend $φ$.
 </div>
 
+## Unions and conjunctions
 
-<!-- ## Connection to Hilbert's tenth problem
+### Lemma
 
-Given a ring $R$ we consider $4$ theories.
+If $S_1$ and $S_2$ are Diophantine over $\algint$, so are
 
-:::::::::::::: {.columns}
-::: {.column width="50%"}
+$$S_1 ∪ S_2 \quad \text{and} \quad S_1 ∩ S_2.$$
 
-**$\lang_{ring}$-theories**
+The resp. polynomial identities can be found effectively.
 
-$\mathtt{Th}_{∃}(R)$
+---
 
-$\mathtt{Th}(R)$
+### Proof
 
-:::
-::: {.column width="50%"}
+Let $p_1(X, Y) ∈ \algint[X, Y]$ and $p_2(X, Y) ∈ \algint {[X, Y]}$ give Diophantine definitions of $S_1$ and $S_2$.
 
-**$\lang_{R}$-theories**
+. . .
 
-$D_{∃}(R)$
+We have
+$$S_1 ∪ S_2 = \set{α \mid ∃ y ∈ \algint: p_1(α, y) p_2(α, y) = 0}.$$
 
-$D^c(R)$
+---
 
-:::
-:::::::::::::: -->
+To prove the claim for intersections of Diophantine sets, let
+
+$$h(T) = a_m T^m + … + a_1 T + a_0 ∈ R[T]$$
+
+be a polynomial of degree $m > 0$ without roots in $\Quot\, \algint = K$. Then
+$\overline h(X) = X^m h(X^{-1})$ does not have roots in $K$ either.
+
+. . .
+
+Set
+
+$$H(X, Y_1, Y_2) = \sum_{i=0}^m a_i p_1(X, Y_1)^i p_2(X, Y_2)^{m - i},$$
+
+then
+
+$$∃ y_1, y_2 ∈ \algint : H(α, y_1, y_2) = 0 \quad ⇔$$
+$$∃ y_1 ∈ \algint : p_1(α, y_1) = 0 \text{ and } ∃ y_2 ∈ \algint : p_2(α, y_2) = 0$$
+
+<div class="notes">
+Divide by $p_1^m$ or $p_2^m$ and find that $h$ or $\overline{h}$ has a root.
+</div>
+
+
+## Going up
+
+### Lemma
+
+Let $L / K$ be an extension of algebraic number fields. If H10 is undecidable over $\algint$ and $\algint$ is Diophantine over $\algint[L]$, then H10 is undecidable over $\algint[L]$.
+
+. . .
+
+<div fragment="true">
+### Proof
+
+Assume otherwise and let $p_K ∈ \algint[L][X, Y]$ give a Diophantine definition of $\algint$ over $\algint[L]$.
+
+If $q ∈ \algint[X_1, …, X_n]$, then $p$ has a root in $\algint$ if and only if
+
+$$∃ \seq{x} ∈ \algint[L] \; ∃ \seq{y} ∈ \algint[L] : q(\seq{x}) = 0 ∧ \bigwedge_{i=1}^n p_K(x_i, y_i) = 0$$
+</div>
+
+
+## Semi-decidable sets are Diophantine
+
+### Theorem
+
+Every semi-decidable subset of $\algint$ is Diophantine if and only if $ℤ$ is
+Diophantine over $\algint$.
+
+
+
 
 ## References

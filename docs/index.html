@@ -119,7 +119,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="columns">
 <div class="column" style="width:70%;">
 <blockquote>
-<p>Given a Diophantine equation with any number of unkown quantities and with <span class="fragment highlight-current-red" data-fragment-index="3"> rational integral </span> numerical coefficients: To devise a <span class="fragment highlight-current-red" data-fragment-index="1"> process </span> according to which it can be <span class="fragment highlight-current-red" data-fragment-index="2"> determined </span> by a <span class="fragment highlight-current-red" data-fragment-index="1"> finite number of operations </span> whether the <span class="fragment highlight-current-red" data-fragment-index="2"> equation is solvable </span> in <span class="fragment highlight-current-red" data-fragment-index="3"> rational integers. </span></p>
+<p>Given a Diophantine equation with any number of unknown quantities and with <span class="fragment highlight-current-red" data-fragment-index="3"> rational integral </span> numerical coefficients: To devise a <span class="fragment highlight-current-red" data-fragment-index="1"> process </span> according to which it can be <span class="fragment highlight-current-red" data-fragment-index="2"> determined </span> by a <span class="fragment highlight-current-red" data-fragment-index="1"> finite number of operations </span> whether the <span class="fragment highlight-current-red" data-fragment-index="2"> equation is solvable </span> in <span class="fragment highlight-current-red" data-fragment-index="3"> rational integers. </span></p>
 <p>– <span class="citation" data-cites="Hilbert1900">Hilbert (1900)</span></p>
 </blockquote>
 </div><div class="column" style="width:30%;">
@@ -253,6 +253,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="fragment">
 <p>What is <span class="math inline">\(\mathbb{B}&#39;(\ulcorner \mathbb{B}&#39; \urcorner)\)</span>?</p>
 </div>
+</section><section id="church-turing-thesis" class="slide level2">
+<h2>Church-Turing thesis</h2>
+<p>I will use without hesitation:</p>
+<blockquote>
+<p>The class of intuitively computable functions coincides with the class of all Turing computable functions.</p>
+</blockquote>
 </section></section>
 <section><section id="some-number-theory" class="title-slide slide level1"><h1>Some number theory</h1></section><section id="number-fields" class="slide level2">
 <h2>Number fields</h2>
@@ -276,11 +282,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="fragment">We write <span class="math inline">\(\mathcal{O}_{}\)</span> for the set of all algebraic integers …</li>
 <li class="fragment">… and if <span class="math inline">\(K\)</span> is a number field, we set <span class="math inline">\(\mathcal{O}_{K}= \mathcal{O}_{} ∩ K\)</span>.</li>
 </ul>
-</section><section id="properties-of-algberaic-integers" class="slide level2">
-<h2>Properties of algberaic integers</h2>
+</section><section id="properties-of-algebraic-integers" class="slide level2">
+<h2>Properties of algebraic integers</h2>
 <h3 id="proposition-1">Proposition</h3>
 <ul>
-<li class="fragment">Both <span class="math inline">\(\mathcal{O}_{}\)</span> and <span class="math inline">\(\mathcal{O}_{K}\)</span> are subrings of <span class="math inline">\(ℂ\)</span> (for all <span class="math inline">\(K\)</span>).</li>
+<li class="fragment">Both <span class="math inline">\(\mathcal{O}_{}\)</span> and <span class="math inline">\(\mathcal{O}_{K}\)</span> are sub-rings of <span class="math inline">\(ℂ\)</span> (for all <span class="math inline">\(K\)</span>).</li>
 <li class="fragment"><span class="math inline">\(\mathcal{O}_{K}\)</span> is a finitely generated free <span class="math inline">\(ℤ\)</span>-module (for all <span class="math inline">\(K\)</span>). A basis is called <em>integral basis</em>.</li>
 <li class="fragment">The quotient field of <span class="math inline">\(\mathcal{O}_{K}\)</span> is (isomorphic to) <span class="math inline">\(K\)</span>.</li>
 </ul>
@@ -289,14 +295,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2>Purely Diophantine sets</h2>
 <h3 id="definition-6">Definition</h3>
 <p>Let <span class="math inline">\(R\)</span> be a commutative ring with unit. A set <span class="math inline">\(S \subseteq R^n\)</span> is called <em>purely Diophantine</em> if there exists a polynomial <span class="math inline">\(p \in ℤ[{X}_1, \ldots,{X}_{n}, {Y}_1, \ldots,{Y}_{m}]\)</span> such that</p>
-<p><span class="math display">\[({x}_1, \ldots,{x}_{n}) \in S \Leftrightarrow \exists {y}_1, \ldots,{y}_{m} \in R^m : p({x}_1, \ldots,{x}_{n}, {y}_1, \ldots,{y}_{m}) = 0\]</span></p>
+<p><span class="math display">\[({α}_1, \ldots,{α}_{n}) \in S \Leftrightarrow \exists {y}_1, \ldots,{y}_{m} \in R^m : p({α}_1, \ldots,{α}_{n}, {y}_1, \ldots,{y}_{m}) = 0\]</span></p>
 </section><section id="examples-of-purely-diophantine-sets" class="slide level2">
 <h2>Examples of purely Diophantine sets</h2>
 <p>Let <span class="math inline">\(R\)</span> be a commutative ring with unit. Then divisibility is purely Diophantine over <span class="math inline">\(R\)</span>.</p>
 <div class="fragment">
 <h3 id="proof">Proof</h3>
-<p>We have <span class="math inline">\(a | b\)</span> iff</p>
-<p><span class="math display">\[\exists y: a y = b.\]</span></p>
+<p>We have <span class="math inline">\(a \mid b\)</span> iff <span class="math inline">\(\exists y ∈ R: a y = b\)</span>. Choose <span class="math inline">\(p(a, b, y) = a y - b\)</span> and obtain</p>
+<p><span class="math display">\[a \mid b \quad ⇔ \quad ∃ y ∈ R: p(a, b, y) = 0.\]</span></p>
 </div>
 </section><section id="alternative-characterization" class="slide level2">
 <h2>Alternative characterization</h2>
@@ -316,7 +322,7 @@ Remark
 <h2>Diophantine Sets</h2>
 <h3 id="definition-8">Definition</h3>
 <p>Let <span class="math inline">\(R\)</span> be a commutative ring with unit. A set <span class="math inline">\(S \subseteq R^n\)</span> is called <em>Diophantine</em> if there exists a polynomial <span class="math inline">\(p \in R[{X}_1, \ldots,{X}_{n}, {Y}_1, \ldots,{Y}_{m}]\)</span> such that</p>
-<p><span class="math display">\[({x}_1, \ldots,{x}_{n}) \in S \Leftrightarrow \exists {y}_1, \ldots,{y}_{m} \in R^m : p({x}_1, \ldots,{x}_{n}, {y}_1, \ldots,{y}_{m}) = 0\]</span></p>
+<p><span class="math display">\[({α}_1, \ldots,{α}_{n}) \in S \Leftrightarrow \exists {y}_1, \ldots,{y}_{m} \in R^m : p({α}_1, \ldots,{α}_{n}, {y}_1, \ldots,{y}_{m}) = 0\]</span></p>
 </section><section id="examples-of-diophantine-sets" class="slide level2">
 <h2>Examples of Diophantine Sets</h2>
 <p>Let <span class="math inline">\(R\)</span> be an integral domain. Then every finite set <span class="math inline">\(S\)</span> is Diophantine.</p>
@@ -344,7 +350,7 @@ Remark
 </section><section id="alternative-characterization-1" class="slide level2">
 <h2>Alternative characterization</h2>
 <h3 id="definition-9">Definition</h3>
-<p>Let <span class="math inline">\(R\)</span> be an at most countable commutatve ring with unit. The <span class="math inline">\(R\)</span>-language is <span class="math inline">\(\mathcal{L}_{R} = \mathcal{L}_{ring} ∪ \left\lbrace c_r \mid r ∈ R \right\rbrace\)</span>.</p>
+<p>Let <span class="math inline">\(R\)</span> be an at most countable commutative ring with unit. The <span class="math inline">\(R\)</span>-language is <span class="math inline">\(\mathcal{L}_{R} = \mathcal{L}_{ring} ∪ \left\lbrace c_r \mid r ∈ R \right\rbrace\)</span>.</p>
 <div class="fragment">
 <div data-fragment="true">
 <h3>
@@ -355,6 +361,30 @@ Remark
 <p>holds for an atomic <span class="math inline">\(\mathcal{L}_{R}\)</span>-formula <span class="math inline">\(φ\)</span>.</p>
 </div>
 </div>
+</section><section id="connection-to-hilberts-tenth-problem" class="slide level2">
+<h2>Connection to Hilbert’s tenth problem</h2>
+<p>Given a commutative ring with unit <span class="math inline">\(R\)</span> we consider <span class="math inline">\(4\)</span> theories.</p>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(\mathcal{L}_{ring}\)</span>-theories</th>
+<th><span class="math inline">\(\mathcal{L}_{R}\)</span>-theories</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong><span class="math inline">\(∃\)</span></strong>-quantified</td>
+<td><span class="math inline">\(\mathtt{Th}_{∃}(R)\)</span></td>
+<td><span class="math inline">\(D_{∃}(R)\)</span></td>
+</tr>
+<tr class="even">
+<td><strong><span class="math inline">\(∃\)</span></strong>- or <strong><span class="math inline">\(∀\)</span></strong>-quantified</td>
+<td><span class="math inline">\(\mathtt{Th}(R)\)</span></td>
+<td><span class="math inline">\(D^c(R)\)</span></td>
+</tr>
+</tbody>
+</table>
 </section><section class="slide level2">
 
 <div style="font-size: 200%;">
@@ -369,48 +399,86 @@ Remark
 <h3 id="definition-10">Definition</h3>
 <ul>
 <li class="fragment">A ring <span class="math inline">\(R \subseteq ω\)</span> is <em>computable</em> if <span class="math inline">\(R\)</span> is decidable and all ring operations are computable.</li>
-<li class="fragment">A ring <span class="math inline">\(R\)</span> is <em>computable presentable</em> if <span class="math inline">\(R\)</span> is isomorphic to a computable ring.</li>
+<li class="fragment">A ring <span class="math inline">\(R\)</span> is <em>computably presentable</em> if <span class="math inline">\(R\)</span> is isomorphic to a computable ring.</li>
 </ul>
-</section><section id="examples-of-computable-rings" class="slide level2">
-<h2>Examples of computable rings</h2>
+</section><section id="examples-of-computably-presentable-rings" class="slide level2">
+<h2>Examples of computably presentable rings</h2>
 <ul>
 <li class="fragment"><span class="math inline">\(ℤ\)</span> is computably presentable.</li>
 <li class="fragment">Using an integral basis, the ring of integers <span class="math inline">\(\mathcal{O}_{K}\)</span> is computably presentable.</li>
 <li class="fragment">If <span class="math inline">\(R\)</span> is a computable integral domain then the ring of polynomials <span class="math inline">\(R[X_1, X_2, …]\)</span> is computably presentable.</li>
 </ul>
+</section><section id="connection-to-hilberts-tenth-problem-1" class="slide level2">
+<h2>Connection to Hilbert’s tenth problem</h2>
+<h3 id="corollary">Corollary</h3>
+<p>Let <span class="math inline">\(K\)</span> be a number field. Then Hilbert’s tenth problem over <span class="math inline">\(\mathcal{O}_{K}\)</span> is semi-decidable.</p>
+<div class="fragment fade-in">
+<h3 id="proof-4">Proof</h3>
+<p>Let <span class="math inline">\(p ∈ \mathcal{O}_{X_1, \ldots,X_n}\)</span> be a polynomial. Interpret <span class="math inline">\(p: R^n → R\)</span>, then <span class="math inline">\(p\)</span> is computable.</p>
+</div>
+<div class="fragment fade-in">
+<p>Deciding whether <span class="math inline">\(p\)</span> has roots in <span class="math inline">\(\mathcal{O}_{K}\)</span> is equivalent to deciding</p>
+<p><span class="math display">\[∃ {x}_1, \ldots,{x}_{n} : p({x}_1, \ldots,{x}_{n}) \doteq 0,\]</span></p>
+<p>which is semi-decidable.</p>
+</div>
 </section><section id="computable-categoricity" class="slide level2">
 <h2>Computable categoricity</h2>
 <h3 id="proposition-2">Proposition</h3>
 <p>Let <span class="math inline">\(R\)</span> be computably presentable, finitely generated ring. Then between any pair of computable representations <span class="math inline">\(R_1, R_2\)</span> of <span class="math inline">\(R\)</span> there is a computable ring-isomorphism <span class="math inline">\(φ: R_1 → R_2\)</span>.</p>
+<div class="fragment">
+<div data-fragment="true">
+<h3 id="corollary-1">Corollary</h3>
+<p>The decidability of Hilbert’s tenth problem over <span class="math inline">\(\mathcal{O}_{K}\)</span> does not depend on the computable representation of <span class="math inline">\(\mathcal{O}_{K}\)</span>.</p>
+</div>
 <aside class="notes">
 <h3 id="sketch-of-proof-1">Sketch of proof</h3>
 <p>Associate <span class="math inline">\(R = R_1\)</span> and let <span class="math inline">\(R = ⟨{ξ}_1, \ldots,{ξ}_{n}⟩\)</span>. By assumption there is an isomorphism <span class="math inline">\(φ: R → R_2\)</span> and <span class="math inline">\(R_2 = ⟨φ(ξ_1), …, φ(ξ_n)⟩\)</span>.</p>
 <p>Now store <span class="math inline">\(φ(ξ_1), …, φ(ξ_n)\)</span> and there multiplication table in memory and extend <span class="math inline">\(φ\)</span>.</p>
 </aside>
-<!-- ## Connection to Hilbert's tenth problem
+</div>
+</section><section id="unions-and-conjunctions" class="slide level2">
+<h2>Unions and conjunctions</h2>
+<h3 id="lemma">Lemma</h3>
+<p>If <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span> are Diophantine over <span class="math inline">\(\mathcal{O}_{K}\)</span>, so are</p>
+<p><span class="math display">\[S_1 ∪ S_2 \quad \text{and} \quad S_1 ∩ S_2.\]</span></p>
+<p>The resp. polynomial identities can be found effectively.</p>
+</section><section class="slide level2">
 
-Given a ring $R$ we consider $4$ theories.
+<h3 id="proof-5">Proof</h3>
+<p>Let <span class="math inline">\(p_1(X, Y) ∈ \mathcal{O}_{X, Y}\)</span> and <span class="math inline">\(p_2(X, Y) ∈ \mathcal{O}_{K}{[X, Y]}\)</span> give Diophantine definitions of <span class="math inline">\(S_1\)</span> and <span class="math inline">\(S_2\)</span>.</p>
+<div class="fragment">
+<p>We have <span class="math display">\[S_1 ∪ S_2 = \left\lbrace α \mid ∃ y ∈ \mathcal{O}_{K}: p_1(α, y) p_2(α, y) = 0 \right\rbrace.\]</span></p>
+</div>
+</section><section class="slide level2">
 
-:::::::::::::: {.columns}
-::: {.column width="50%"}
-
-**$\lang_{ring}$-theories**
-
-$\mathtt{Th}_{∃}(R)$
-
-$\mathtt{Th}(R)$
-
-:::
-::: {.column width="50%"}
-
-**$\lang_{R}$-theories**
-
-$D_{∃}(R)$
-
-$D^c(R)$
-
-:::
-:::::::::::::: -->
+<p>To prove the claim for intersections of Diophantine sets, let</p>
+<p><span class="math display">\[h(T) = a_m T^m + … + a_1 T + a_0 ∈ R[T]\]</span></p>
+<p>be a polynomial of degree <span class="math inline">\(m &gt; 0\)</span> without roots in <span class="math inline">\(\mathrm{Quot}\, \mathcal{O}_{K}= K\)</span>. Then <span class="math inline">\(\overline h(X) = X^m h(X^{-1})\)</span> does not have roots in <span class="math inline">\(K\)</span> either.</p>
+<div class="fragment">
+<p>Set</p>
+<p><span class="math display">\[H(X, Y_1, Y_2) = \sum_{i=0}^m a_i p_1(X, Y_1)^i p_2(X, Y_2)^{m - i},\]</span></p>
+<p>then</p>
+<p><span class="math display">\[∃ y_1, y_2 ∈ \mathcal{O}_{K}: H(α, y_1, y_2) = 0 \quad ⇔\]</span> <span class="math display">\[∃ y_1 ∈ \mathcal{O}_{K}: p_1(α, y_1) = 0 \text{ and } ∃ y_2 ∈ \mathcal{O}_{K}: p_2(α, y_2) = 0\]</span></p>
+<aside class="notes">
+<p>Divide by <span class="math inline">\(p_1^m\)</span> or <span class="math inline">\(p_2^m\)</span> and find that <span class="math inline">\(h\)</span> or <span class="math inline">\(\overline{h}\)</span> has a root.</p>
+</aside>
+</div>
+</section><section id="going-up" class="slide level2">
+<h2>Going up</h2>
+<h3 id="lemma-1">Lemma</h3>
+<p>Let <span class="math inline">\(L / K\)</span> be an extension of algebraic number fields. If H10 is undecidable over <span class="math inline">\(\mathcal{O}_{K}\)</span> and <span class="math inline">\(\mathcal{O}_{K}\)</span> is Diophantine over <span class="math inline">\(\mathcal{O}_{L}\)</span>, then H10 is undecidable over <span class="math inline">\(\mathcal{O}_{L}\)</span>.</p>
+<div class="fragment">
+<div data-fragment="true">
+<h3 id="proof-6">Proof</h3>
+<p>Assume otherwise and let <span class="math inline">\(p_K ∈ \mathcal{O}_{L}[X, Y]\)</span> give a Diophantine definition of <span class="math inline">\(\mathcal{O}_{K}\)</span> over <span class="math inline">\(\mathcal{O}_{L}\)</span>.</p>
+<p>If <span class="math inline">\(q ∈ \mathcal{O}_{X_1, …, X_n}\)</span>, then <span class="math inline">\(p\)</span> has a root in <span class="math inline">\(\mathcal{O}_{K}\)</span> if and only if</p>
+<p><span class="math display">\[∃ {x}_1, \ldots,{x}_{n} ∈ \mathcal{O}_{L} \; ∃ {y}_1, \ldots,{y}_{n} ∈ \mathcal{O}_{L} : q({x}_1, \ldots,{x}_{n}) = 0 ∧ \bigwedge_{i=1}^n p_K(x_i, y_i) = 0\]</span></p>
+</div>
+</div>
+</section><section id="semi-decidable-sets-are-diophantine" class="slide level2">
+<h2>Semi-decidable sets are Diophantine</h2>
+<h3 id="theorem-1">Theorem</h3>
+<p>Every semi-decidable subset of <span class="math inline">\(\mathcal{O}_{K}\)</span> is Diophantine if and only if <span class="math inline">\(ℤ\)</span> is Diophantine over <span class="math inline">\(\mathcal{O}_{K}\)</span>.</p>
 </section><section id="references" class="slide level2 unnumbered">
 <h2>References</h2>
 <div id="refs" class="references">
