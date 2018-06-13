@@ -80,6 +80,8 @@ body.dark .reveal h6 {
     text-transform: lowercase;
     letter-spacing: 0.2em;
     font-variant-ligatures: none;
+    border-bottom: 2px solid #AE1C3E;
+    padding-bottom: 15px;
 }
 
 .reveal h2 {
@@ -123,10 +125,11 @@ p.author, p.date {
 h1.title {
     font-size:1.67em;
     font-variant: small-caps;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     text-transform: lowercase;
     letter-spacing: 0.2em;
     font-variant-ligatures: none;
+    border-bottom: none;
 }
 
 .level2 h1 {
