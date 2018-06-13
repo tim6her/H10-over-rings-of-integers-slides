@@ -5,7 +5,7 @@
  * This theme is Copyright (C) 2016 Vince Hodges, http://sourdoughlabs.com - it is MIT licensed.
  */
 
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond');
+@import url('https://fonts.googleapis.com/css?family=EB+Garamond');
 
 .reveal a {
     line-height: 1.3em; }
@@ -35,10 +35,10 @@ body.dark .reveal h6 {
 }
 
 .reveal {
-    font-family: "Cormorant Garamond";
+    font-family: "EB Garamond";
     font-variant-numeric: tabular-nums;
-    font-size: 32px;
-    font-weight: normal;
+    font-size: 28px;
+    font-weight: 50;
     color: #33474b; }
 
 ::selection {
@@ -66,7 +66,7 @@ body.dark .reveal h6 {
 .reveal h6 {
     margin: 0 0 20px 0;
     color: #33474b;
-    font-family: "Cormorant Garamond";
+    font-family: "EB Garamond";
     font-weight: normal;
     font-variant: small-caps;
     line-height: 1;
@@ -247,16 +247,22 @@ h1.title {
 .reveal table {
     margin: auto;
     border-collapse: collapse;
-    border-spacing: 0; }
+    border-spacing: 0;
+    width: 100%;
+   }
 
 .reveal table th {
     font-weight: bold; }
 
-.reveal table th,
+.reveal table th {
+  text-align: left;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  border-bottom: 1px solid;
+}
 .reveal table td {
     text-align: left;
     padding: 0.2em 0.5em 0.2em 0.5em;
-    border-bottom: 1px solid; }
+  }
 
 .reveal table th[align="center"],
 .reveal table td[align="center"] {
