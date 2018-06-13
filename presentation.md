@@ -26,7 +26,6 @@ keywords: [number theory, theoretical computer science, decidability]
 \DeclareMathOperator{\rk}{rk}
 \DeclareMathOperator{\End}{\mathrm{End}}
 \DeclareMathOperator{\Hom}{\mathrm{Hom}}
-\DeclareMathOperator{\Mod}{\mathrm{mod}}
 \DeclareMathOperator{\D}{\mathrm{D}}
 \DeclareMathOperator{\lcm}{\mathrm{lcm}}
 \DeclareMathOperator{\ord}{\mathrm{ord}}
@@ -51,6 +50,7 @@ keywords: [number theory, theoretical computer science, decidability]
 \newcommand*{\seq}[2][n]{{#2}_1, \ldots, {#2}_{#1}}
 \newcommand*{\lang}{\mathcal{L}}
 \newcommand*{\Quot}{\mathrm{Quot}}
+\newcommand*{\Mod}{\mathrel{\mathrm{mod}}}
 </span>
 
 :::::::::::::: {.columns}
@@ -593,7 +593,7 @@ $$∃ \seq{x} ∈ \algint[L] \; ∃ \seq{y} ∈ \algint[L] : q(\seq{x}) = 0 ∧ 
 </div>
 
 
-## Semi-decidable sets are Diophantine
+## A Diophantine definition of rational integers is key
 
 ### Theorem
 
@@ -601,6 +601,21 @@ Every semi-decidable subset of $\algint$ is Diophantine if and only if $ℤ$ is
 Diophantine over $\algint$.
 
 
+## Strong vertical method of Denef and Lipshitz
 
+### Theorem
+
+Let $L  /K$ be an extension of number fields and $n = [L : ℚ]$. If $x, y ∈
+\algint[L]$ and $α ∈ \algint$ satisfy
+
+1. $y$ is not a unit,
+2. $|σ_i(x)| ≤ |N_{L/ℚ}(y^c)|$ for all $1 ≤ i ≤ n$,
+3. $|σ_i(α)| ≤ |N_{L/ℚ}(y^c)|$ for all $1 ≤ i ≤ n$, and
+4. $x \equiv α \Mod \left(2 y^{2cn}\right)$ in $\algint[L]$
+
+where $\seq{σ}$ denote the embeddings of $L$ into  $ℂ$ and $c ∈
+ℕ$ is a fixed, then
+
+$$x = α ∈ \algint.$$
 
 ## References
