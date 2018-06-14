@@ -105,7 +105,7 @@ $$δ: S \times A \to S \times A \times \lbrace -1, 0, 1 \rbrace$$
 is called *transition function*. If $δ(s, a) = (s', b, m)$, one
 demands that the following axioms are satisfied
 
-* $a = \sta$ if and only if $b = \mathtt{S}$,
+* $a = \sta$ if and only if $b = \sta$,
 * If $a = \sta$, then $m \neq -1$, and
 * If $s = s_{halt}$, then $s' = s_{halt}$, $a = b$ and $m = 0$.
 
@@ -293,7 +293,7 @@ A *number field* $K$ is a finite extension of the rationals $ℚ$.
 ### Examples
 
 * $ℚ[i] = \set{x + i y \mid x, y ∈ ℚ}$
-* $ℚ[\sqrt[3]{2}] = \set{x + \sqrt[3]{2} y + \sqrt[3]{4} z}$
+* $ℚ[\sqrt[3]{2}] = \set{x + \sqrt[3]{2} y + \sqrt[3]{4} z \mid x, y, z ∈ ℚ}$
 </div>
 
 
@@ -378,7 +378,7 @@ $$(\seq{α}) \in S \Leftrightarrow \exists \seq[m]{y} \in R^m : p(\seq{α}, \seq
 
 ## Examples of Diophantine Sets
 
-Let $R$ be an integral domain. Then every finite set $S$ is Diophantine.
+Let $R$ be an integral domain. Then every finite set $S \subset R$ is Diophantine.
 
 . . .
 
@@ -439,10 +439,10 @@ The $R$-language  is $\lang_{R} = \lang_{ring} ∪ \set{c_r \mid r ∈ R}$.
 Given a commutative ring with unit $R$ we consider $4$ theories.
 
 
-|                                | $\lang_{ring}$-theories                 | $\lang_{R}$-theories                                                        |
-| ------------------------------ | --------------------------------------- | --------------------------------------------------------------------------- |
-| **$∃$**-quantified             | purely Diophantine $\mathtt{H10}^*(R)$ | <span class="fragment highlight-current-red">Diophantine  $\mathtt{H10}(R)$</span> |
-| **$∃$**- or **$∀$**-quantified | full theory $\mathtt{Th}(R)$            | complete diagram $D^c(R)$                                                   |
+|                                | $\lang_{ring}$-theories                | $\lang_{R}$-theories           |
+| ------------------------------ | -------------------------------------- | ------------------------------ |
+| **$∃$**-quantified             | purely Diophantine $\mathtt{H10}^*(R)$ | Diophantine  $\mathtt{H10}(R)$ |
+| **$∃$**- or **$∀$**-quantified | full theory $\mathtt{Th}(R)$           | complete diagram $D^c(R)$      |
 
 
 ---
@@ -488,7 +488,7 @@ The full theory $\mathtt{Th}(ℂ)$ is decidable. Thus, $\mathtt{H10}^*(ℂ)$ is 
 <div fragment="true">
 ### Theorem [@Rumely1986;@Dries1988]
 
-The theories $H10(\algint[])$ and $\mathtt{Th}(\algint[])$ are decidable.
+The theories $\mathtt{H10}(\algint[])$ and $D^c(\algint[])$ are decidable.
 </div>
 
 
@@ -525,7 +525,7 @@ $\mathtt{H10}(\algint)$ is undecidable if
 > * Especially: Is $\mathtt{H10}(ℚ)$ decidable?
 
 
-# How do we know it
+# Computable rings and structural methods
 
 ## Computable ring
 
@@ -556,7 +556,7 @@ semi-decidable.
 <div class="fragment fade-in">
 ### Proof
 
-Let $p ∈ \algint [\seq{X}]$ be a polynomial. Interpret $p: R^n → R$, then $p$ is computable.
+Let $p ∈ \algint{} [\seq{X}]$ be a polynomial. Interpret $p: \algint^n → \algint$, then $p$ is computable.
 </div>
 
 <div class="fragment fade-in">
@@ -567,7 +567,7 @@ $$∃ \seq{x} : p(\seq{x}) \doteq 0,$$
 which is semi-decidable.
 </div>
 
-## Computable categoricity
+<!-- ## Computable categoricity
 
 ### Proposition
 
@@ -592,7 +592,7 @@ isomorphism $φ: R → R_2$ and $R_2 = ⟨φ(ξ_1), …, φ(ξ_n)⟩$.
 
 Now store $φ(ξ_1), …, φ(ξ_n)$ and there multiplication table in memory and
 extend $φ$.
-</div>
+</div> -->
 
 ## Unions and conjunctions
 
@@ -608,7 +608,7 @@ The resp. polynomial identities can be found effectively.
 
 ### Proof
 
-Let $p_1(X, Y) ∈ \algint[X, Y]$ and $p_2(X, Y) ∈ \algint {[X, Y]}$ give Diophantine definitions of $S_1$ and $S_2$.
+Let $p_1(X, Y), p_2(X, Y) ∈ \algint{}{[X, Y]}$ give Diophantine definitions of $S_1$ and $S_2$.
 
 . . .
 
@@ -619,10 +619,10 @@ $$S_1 ∪ S_2 = \set{α \mid ∃ y ∈ \algint: p_1(α, y) p_2(α, y) = 0}.$$
 
 To prove the claim for intersections of Diophantine sets, let
 
-$$h(T) = a_m T^m + … + a_1 T + a_0 ∈ R[T]$$
+$$h(T) = a_m T^m + … + a_1 T + a_0 ∈ \algint{}[T]$$
 
 be a polynomial of degree $m > 0$ without roots in $\Quot\, \algint = K$. Then
-$\overline h(X) = X^m h(X^{-1})$ does not have roots in $K$ either.
+$\overline h(T) = T^m h(T^{-1})$ does not have roots in $K$ either.
 
 . . .
 
@@ -653,7 +653,7 @@ Let $L / K$ be an extension of algebraic number fields. If $\mathtt{H10}$ is und
 
 Assume otherwise and let $p_K ∈ \algint[L][X, Y]$ give a Diophantine definition of $\algint$ over $\algint[L]$.
 
-If $q ∈ \algint[X_1, …, X_n]$, then $p$ has a root in $\algint$ if and only if
+If $q ∈ \algint{}[X_1, …, X_n]$, then $q$ has a root in $\algint$ if and only if
 
 $$∃ \seq{x} ∈ \algint[L] \; ∃ \seq{y} ∈ \algint[L] : q(\seq{x}) = 0 ∧ \bigwedge_{i=1}^n p_K(x_i, y_i) = 0$$
 </div>
@@ -683,5 +683,177 @@ where $\seq{σ}$ denote the embeddings of $L$ into  $ℂ$ and $c ∈
 ℕ$ is a fixed, then
 
 $$x = α ∈ \algint.$$
+
+
+# A Diophantine definition of rational integers over the integers of a totally real number field
+
+## Two sequences
+
+<div fragment="true">
+### Definition
+
+Let $K$ be totally real and $a ∈ \algint$. We set
+
+* $δ(a) := \sqrt{a^2 - 1}$ and
+* $ε(a) := a + δ(a)$.
+</div>
+
+. . .
+
+<div fragment="true">
+If $δ(a) ∉ K$, we define $\px_m(a), \py_m(a)$ by
+
+$$\px_m(a) + δ(a) \py_m(a) = ε(a)^m$$
+</div>
+
+. . .
+
+<div fragment="true">
+View this as an analogue to
+
+$$\cos(m) + i \sin(m) = e^{im}$$
+</div>
+
+
+## Pell's equation
+
+$$X^2 - (a^2 - 1) Y^2 = 1$$
+
+### Lemma
+
+$(±\px_m(a), ±\py_m(a))_{m ∈ ℕ}$ are all solutions to Pell's equation with parameter $a$ in $\algint$.
+
+. . .
+
+<div fragment="true">
+View this as an analogue to
+
+$$\cos(m)^2 - i^2 \sin(m)^2 = 1$$
+</div>
+
+
+---
+
+### Notation
+
+Let $K$ be number field of degree $n = [K : ℚ]$ and let $\seq{σ}$ denote all embeddings of $K$ into $ℂ$. For all $α ∈ K$ we set
+
+$$α_i := σ_i(α) \quad\text{for all } 1 ≤ i ≤ n$$
+
+---
+
+### Main Lemma
+
+Let $K ≠ ℚ$ be a totally real number field of degree $n = [K : ℚ]$ and let $a ∈ \algint$ satisfy
+
+$$a_1 ≥ 2^{2n}, \quad |a_i| ≤ \frac{1}{8} \text{ for all } 2 ≤ i ≤ n.$$
+
+Define $S \subseteq \algint$ by $ξ ∈ S ⇔ ∃ x, y, w, z, u, v, s, t, b ∈ \algint:$
+
+:::::::::::::: {.columns}
+::: {.column width="25%"}
+
+$$\begin{aligned}
+x^2 - (a^2 - 1)y^2 &= 1\\
+w^2 - (a^2 - 1)z^2 &= 1\\
+u^2 - (a^2 - 1)v^2 &= 1\\
+s^2 - (b^2 - 1)t^2 &= 1\\
+v &≠ 0\\
+z^2 & \mid v\\
+\end{aligned}$$
+
+:::
+::: {.column width="36%"}
+
+$$\begin{aligned}
+b_1 &≥ 2^{2n}\\
+|b_i| &≤ \frac{1}{2} \; \text{for } 2 ≤ i ≤ n\\
+|u_i| &≥ \frac{1}{2} \; \text{for } 2 ≤ i ≤ n\\
+|z_i| &≥ \frac{1}{2} \; \text{for } 2 ≤ i ≤ n\\
+b &\equiv 1 \Mod (z)\\
+\end{aligned}$$
+
+:::
+::: {.column width="39%"}
+
+$$\begin{aligned}
+b &\equiv a \Mod (u)\\
+s &\equiv x \Mod (u)\\
+t &\equiv ξ \Mod (z)\\
+2^{2n+1}& \prod_{i = 0}^{n - 1} (ξ + i)^n \prod_{j = 0}^{n - 1} (x + j)^n \;\big\vert\; z
+\end{aligned}$$
+
+:::
+::::::::::::::
+
+Then $ℕ \subseteq S \subseteq ℤ$.
+
+---
+
+### Main Lemma
+
+Let $K ≠ ℚ$ be a totally real number field of degree $n = [K : ℚ]$ and let $a ∈ \algint$ satisfy
+
+$$a_1 ≥ 2^{2n}, \quad |a_i| ≤ \frac{1}{8} \text{ for all } 2 ≤ i ≤ n.$$
+
+Define $S \subseteq \algint$ by $ξ ∈ S ⇔ ∃ x, y, w, z, u, v, s, t, b ∈ \algint:$
+
+:::::::::::::: {.columns}
+::: {.column width="25%"}
+
+$$\begin{aligned}
+x = ±\px_k(a), & \; y = ±\py_k(a)\\
+w = ±\px_h(a), & \; z = ±\py_h(a)\\
+u = ±\px_m(a), & \; v = ±\py_m(a)\\
+s = ±\px_j(b), & \; t = ±\py_k(b)\\
+v &≠ 0\\
+z^2 & \mid v\\
+\end{aligned}$$
+
+:::
+::: {.column width="36%"}
+
+$$\begin{aligned}
+b_1 &≥ 2^{2n}\\
+|b_i| &≤ \frac{1}{2} \; \text{for } 2 ≤ i ≤ n\\
+|u_i| &≥ \frac{1}{2} \; \text{for } 2 ≤ i ≤ n\\
+|z_i| &≥ \frac{1}{2} \; \text{for } 2 ≤ i ≤ n\\
+b &\equiv 1 \Mod (z)\\
+\end{aligned}$$
+
+:::
+::: {.column width="39%"}
+
+$$\begin{aligned}
+b &\equiv a \Mod (u)\\
+s &\equiv x \Mod (u)\\
+t &\equiv ξ \Mod (z)\\
+2^{2n+1}& \prod_{i = 0}^{n - 1} (ξ + i)^n \prod_{j = 0}^{n - 1} (x + j)^n \;\big\vert\; z
+\end{aligned}$$
+
+:::
+::::::::::::::
+
+Then $ℕ \subseteq S \subseteq ℤ$.
+
+## Diophantine definition of the rational integers
+
+### Theorem [@Denef1980]
+
+Let $K$ be a totally real number field. Then $ℤ$ is Diophantine over $\algint$.
+
+. . .
+
+<div fragment="true">
+Use Minkowski's theorem on convex bodies to find an $a ∈ \algint$ satisfying the estimates in the previous lemma.
+</div>
+
+. . .
+
+<div fragment="true">
+Then $ℕ \subseteq S \subseteq ℤ$ is Diophantine over $\algint$, and $\set{-1, 1}$ is Diophantine as well. Now
+
+$$α ∈ ℤ \quad ⇔ \quad ∃ s, ξ: α = s ξ ∧ (s - 1)(s + 1) = 0 ∧ ξ ∈ S$$
+</div>
 
 ## References
